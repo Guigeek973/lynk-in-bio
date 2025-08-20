@@ -3,6 +3,7 @@ import type { GetStaticProps } from "next";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
+import { useEffect, useRef } from "react";
 
 import seo from "data/seo.json";
 import Credits from "src/components/Credits";
@@ -28,10 +29,31 @@ export const getStaticProps: GetStaticProps = async ({}) => {
 };
 
 export default function Home({ source }: _Props) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <>
       <NextSeo {...seo} />
       <div className={"wrapper"}>
+        <video
+          ref={videoRef}
+          className="background-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/background.png"
+        >
+          <source src="/video-guigui.mp4" type="video/mp4" />
+        </video>
         <div className={"content"}>
           <div id={"lynk-instance"}>
             <Renderer>{source}</Renderer>
