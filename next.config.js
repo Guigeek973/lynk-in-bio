@@ -2,8 +2,9 @@ const isProd = process.env.NODE_ENV === 'production'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: isProd ? '/coleen_pl' : '',
-  assetPrefix: isProd ? '/coleen_pl/' : '',
+  // trailingSlash: true,
+  // basePath: isProd ? '/coleen_pl' : '',
+  // assetPrefix: isProd ? '/coleen_pl' : undefined,
   images: {
     unoptimized: true,
   },
