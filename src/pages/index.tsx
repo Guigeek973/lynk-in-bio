@@ -52,6 +52,25 @@ export default function Home({ source }: _Props) {
           playsInline
           poster="/background.png"
         >
+          {/* Vidéo pour mobile (petit format) */}
+          <source 
+            src="/video-mobile.mp4" 
+            type="video/mp4" 
+            media="(max-width: 768px)"
+          />
+          {/* Vidéo pour tablette (format moyen) */}
+          <source 
+            src="/video-tablet.mp4" 
+            type="video/mp4" 
+            media="(min-width: 769px) and (max-width: 1024px)"
+          />
+          {/* Vidéo pour desktop (format original) */}
+          <source 
+            src="/video-0820.mp4" 
+            type="video/mp4" 
+            media="(min-width: 1025px)"
+          />
+          {/* Fallback pour tous les navigateurs */}
           <source src="/video-0820.mp4" type="video/mp4" />
         </video>
         <div className={"content"}>

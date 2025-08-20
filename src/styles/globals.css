@@ -40,6 +40,12 @@ body {
   transition: all 0.2s ease !important;
 }
 
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1rem !important;
+  }
+}
+
 .btn:hover {
     transform: translate(10px, -10px) !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
