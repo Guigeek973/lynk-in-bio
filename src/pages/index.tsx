@@ -39,9 +39,6 @@ export default function Home({ source }: _Props) {
     }
   }, []);
 
-  // Utiliser le assetPrefix pour les assets statiques
-  const assetPrefix = process.env.NODE_ENV === 'production' ? '/coleen_pl' : '';
-
   return (
     <>
       <NextSeo {...seo} />
@@ -53,9 +50,9 @@ export default function Home({ source }: _Props) {
           loop
           muted
           playsInline
-          poster={`${assetPrefix}/background.png`}
+          poster="/background.png"
         >
-          <source src={`${assetPrefix}/video-0820.mp4`} type="video/mp4" />
+          <source src="/video-0820.mp4" type="video/mp4" />
         </video>
         <div className={"content"}>
           <div id={"lynk-instance"}>
