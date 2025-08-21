@@ -54,13 +54,13 @@ export default function Home({ source }: _Props) {
         >
           {/* Vidéo pour mobile (petit format) */}
           <source 
-            src="/video-mobile.mp4" 
+            src="/video-0820.mp4" 
             type="video/mp4" 
             media="(max-width: 768px)"
           />
           {/* Vidéo pour tablette (format moyen) */}
           <source 
-            src="/video-tablet.mp4" 
+            src="/video-0820.mp4" 
             type="video/mp4" 
             media="(min-width: 769px) and (max-width: 1024px)"
           />

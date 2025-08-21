@@ -215,7 +215,7 @@ const colors: Colors = {
     a100: "#ffd180",
     a200: "#ffab40",
     a400: "#ff9100",
-    a700: "#ff6d00",
+    a700: "#ff7a00",
   },
   red: {
     50: "#fef2f2",
