@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const BACKGROUND_IMAGES = [
+  "/background.jpeg",
   "/img/collage coco.jpeg",
   "/img/summer of love collage.jpeg",
   "/img/The end collage.jpeg",
