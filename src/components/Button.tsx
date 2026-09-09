@@ -42,9 +42,6 @@ export const Button: React.FC<ButtonProps> = ({
     textColor = theme.colors[color] as string || color;
   }
 
-  // Debug temporaire
-  console.log(`Button color: "${color}" -> resolved to: "${textColor}"`);
-
   let iconColorValue: string;
   if (iconColor) {
     if (iconColor.split(".").length > 1) {
@@ -54,7 +51,6 @@ export const Button: React.FC<ButtonProps> = ({
       // Format: "black", "white", ou couleur hex directe
       iconColorValue = theme.colors[iconColor] as string || iconColor;
     }
-    console.log(`Button iconColor: "${iconColor}" -> resolved to: "${iconColorValue}"`);
   } else {
     iconColorValue = textColor; // Par défaut, l'icône a la même couleur que le texte
   }
@@ -68,7 +64,6 @@ export const Button: React.FC<ButtonProps> = ({
       // Format: "black", "white", ou couleur hex directe
       bgColor = theme.colors[backgroundColor] as string || backgroundColor;
     }
-    console.log(`Button backgroundColor: "${backgroundColor}" -> resolved to: "${bgColor}"`);
   } else {
     // Arrière-plan par défaut basé sur dark et muted
     bgColor = !muted ? (dark ? "#111827" : "#f9fafb") : dark ? "#f9fafb" : "#111827";
