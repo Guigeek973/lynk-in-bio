@@ -14,6 +14,20 @@
   .credits-text {
     font-size: 1rem;
   }
+
+  .credits-link {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+    text-underline-offset: 0.2em;
+    transition: opacity 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 0.85;
+      text-decoration-color: rgba(255, 255, 255, 0.9);
+    }
+  }
 }
   
   

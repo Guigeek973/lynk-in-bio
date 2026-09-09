@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 
 import seo from "data/seo.json";
+import BackgroundSlideshow from "src/components/BackgroundSlideshow";
 import BeehiivNewsletter from "src/components/BeehiivNewsletter";
 import Credits from "src/components/Credits";
 import Renderer from "src/components/Renderer";
@@ -36,7 +37,7 @@ export default function Home({ source }: _Props) {
       <NextSeo {...seo} />
       <BeehiivNewsletter />
       <div className={"wrapper"}>
-        <div className="background-image" aria-hidden="true" />
+        <BackgroundSlideshow />
         <div className={"content"}>
           <div id={"lynk-instance"}>
             <Renderer>{source}</Renderer>

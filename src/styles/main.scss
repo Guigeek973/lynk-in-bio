@@ -30,16 +30,27 @@ body,
   overflow: hidden;
 }
 
-.background-image {
+.background-slideshow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("/background.jpeg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.background-slide {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   filter: brightness(0.5);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+  &--active {
+    opacity: 1;
+  }
 }
 
 .content {
@@ -55,32 +66,24 @@ body,
 }
 
 @keyframes newsletter-shake {
-  0%, 25%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0);
+  0%, 70%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0);
   }
 
-  2% {
-    transform: translate3d(-4px, 0, 0) rotate(-2deg);
+  74% {
+    transform: translate3d(0, -2px, 0) scale(1.15) rotate(-2deg);
   }
 
-  4% {
-    transform: translate3d(4px, 0, 0) rotate(2deg);
+  78% {
+    transform: translate3d(-1px, 0, 0) scale(1.1) rotate(1.5deg);
   }
 
-  6% {
-    transform: translate3d(-4px, 0, 0) rotate(-2deg);
+  82% {
+    transform: translate3d(1px, 0, 0) scale(1.04) rotate(-2deg);
   }
 
-  8% {
-    transform: translate3d(4px, 0, 0) rotate(2deg);
-  }
-
-  10% {
-    transform: translate3d(-2px, 0, 0) rotate(-1deg);
-  }
-
-  12% {
-    transform: translate3d(0, 0, 0) rotate(0);
+  86% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0);
   }
 }
 
@@ -147,7 +150,7 @@ body,
 
 .beehiiv-form {
   width: 100%;
-  min-height: 12rem;
+  padding-bottom: 10px;
   opacity: 0;
 
   &--ready {
@@ -170,7 +173,7 @@ body,
   cursor: pointer;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
   transition: background 0.15s ease-in-out;
-  animation: newsletter-shake 2s ease-in-out infinite;
+  animation: newsletter-shake 3s ease-in-out infinite;
 
   &:hover {
     background: #15803d;
@@ -179,6 +182,13 @@ body,
 
 #lynk-instance {
   display: inline-block;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
   p {
     line-height: 1.3rem;

@@ -21,6 +21,31 @@
     left: 1rem;
   }
 
+  .icon-bmc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 6px 0 0 6px;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      display: block;
+      object-fit: contain;
+      border-radius: 6px 0 0 6px;
+    }
+  }
+
+  &--support {
+    padding-left: 4.5rem;
+  }
+
   &.sm {
     font-size: 1rem;
     padding: 1rem 3.25rem 1rem 3.25rem;
@@ -30,5 +55,12 @@
       height: 1.25rem;
     }
   }
-}
 
+  @media (max-width: 768px) {
+    &:not(.btn--support) {
+      width: auto;
+      max-width: min(100%, 18rem);
+      margin-inline: auto;
+    }
+  }
+}

@@ -15,6 +15,8 @@ interface ButtonProps {
   flat?: boolean;
   left?: boolean;
   sm?: boolean;
+  support?: boolean;
+  iconSrc?: string;
   icon?: ReactNode;
   href: string;
   children?: ReactNode;
@@ -29,6 +31,8 @@ export const Button: React.FC<ButtonProps> = ({
   flat = false,
   left = false,
   sm = false,
+  support = false,
+  iconSrc,
   icon,
   href,
   children,
@@ -71,8 +75,14 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <>
-      <a className={clsx("btn", sm && "sm")} href={href} rel="noopener noreferrer" target={"_blank"}>
-        {icon && <div className={"icon"}>{icon}</div>}
+      <a className={clsx("btn", sm && "sm", support && "btn--support")} href={href} rel="noopener noreferrer" target={"_blank"}>
+        {support && iconSrc ? (
+          <div className="icon-bmc">
+            <img src={iconSrc} alt="" />
+          </div>
+        ) : (
+          icon && <div className="icon">{icon}</div>
+        )}
         {children}
       </a>
       <style jsx>{`
