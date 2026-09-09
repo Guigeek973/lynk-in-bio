@@ -54,6 +54,129 @@ body,
   z-index: 1;
 }
 
+@keyframes newsletter-shake {
+  0%, 25%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+
+  2% {
+    transform: translate3d(-4px, 0, 0) rotate(-2deg);
+  }
+
+  4% {
+    transform: translate3d(4px, 0, 0) rotate(2deg);
+  }
+
+  6% {
+    transform: translate3d(-4px, 0, 0) rotate(-2deg);
+  }
+
+  8% {
+    transform: translate3d(4px, 0, 0) rotate(2deg);
+  }
+
+  10% {
+    transform: translate3d(-2px, 0, 0) rotate(-1deg);
+  }
+
+  12% {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+.newsletter-overlay--preload {
+  position: fixed;
+  left: -100vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 28rem;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.newsletter-overlay--open {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.newsletter-popup {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.newsletter-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: #f3f4f6;
+    color: #111827;
+  }
+}
+
+.newsletter-loading {
+  margin: 0 0 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.beehiiv-form {
+  width: 100%;
+  min-height: 12rem;
+  opacity: 0;
+
+  &--ready {
+    opacity: 1;
+  }
+}
+
+.newsletter-trigger {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 99;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+  transition: background 0.15s ease-in-out;
+  animation: newsletter-shake 2s ease-in-out infinite;
+
+  &:hover {
+    background: #15803d;
+  }
+}
+
 #lynk-instance {
   display: inline-block;
 
