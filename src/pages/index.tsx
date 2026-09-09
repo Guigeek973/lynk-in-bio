@@ -18,6 +18,8 @@ export const getStaticProps: GetStaticProps = async ({}) => {
 
   const source = await serialize(content, {
     scope: data,
+    // Trusted repo content uses JSX expressions (e.g. color={"white"}).
+    blockJS: false,
   });
 
   return {
